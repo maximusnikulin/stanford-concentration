@@ -10,20 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game = Concentration(numberOfPairsOfCards: (cardsButtons.count + 1) / 2)
-    
-    var flipCounter: Int = 0 {
-        didSet {
-            flipCounterLabel.text = String("FlipCounts: \(flipCounter)")
-        }
-    }
+    lazy var game = newGame()
+
     
     @IBOutlet var cardsButtons: [UIButton]!
     
-    var emojiCards: [String] = ["👻", "🎃", "👻", "🎃"]
-    
     @IBAction func touchCard(_ sender: UIButton) {
-        flipCounter += 1
         if let indexCard = cardsButtons.firstIndex(of: sender) {            
             game.chooseCard(at: indexCard)
             updateViewFromModel()
@@ -33,6 +25,9 @@ class ViewController: UIViewController {
     }
     
     func updateViewFromModel () {
+        flipCounterLabel.text = String("FlipCounts: \(game.flipCounter)")
+        scoreLabel.text = String("Score: \(game.score)")
+        
         for index in cardsButtons.indices {
             let button = cardsButtons[index]
             let card = game.cards[index]
@@ -48,7 +43,34 @@ class ViewController: UIViewController {
         }
     }
     
-    var emojiChoose = ["😀", "🪀", "⛹️", "🏋️‍♀️", "🤽‍♀️"]
+    func newGame () -> Concentration {
+        emojiChoose = getRandomTheme()
+        return Concentration(numberOfPairsOfCards: (cardsButtons.count + 1) / 2)
+    }
+    
+    @IBAction func touchNewGame(_ sender: UIButton) {
+        game = newGame()
+        updateViewFromModel()
+    }
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    var themes: [String: [String]] = [
+        "sport": ["🏀", "🏈", "🪀", "🥎", "🏐", "🏉", "🎱", "😃"],
+        "new-year": ["🥶", "🤶", "🎅🏻", "🌲", "🎅🏽", "🎅🏿", "🤶🏾", "😘"],
+        "boys": ["🙆‍♂️", "🙍🏻‍♂️", "🚶‍♂️", "🏃🏾‍♂️", "👦🏽", "💇🏽‍♂️", "💆🏽‍♂️", "🤪"],
+        "girls": ["💁🏻‍♀️", "🧗‍♀️", "👯‍♀️", "💁🏽‍♀️", "💁🏿‍♀️", "💁🏼‍♀️", "💁‍♀️", "😎"],
+    ]
+    
+    func getRandomTheme () -> [String] {
+        let randomIndex = Int(arc4random_uniform(UInt32(themes.count)))
+        let randomThemeName = Array(themes.keys)[randomIndex]
+        print("theme name: " + randomThemeName)
+        return themes[randomThemeName] ?? []
+    }
+    
+    
+    var emojiChoose: [String] = []
     
     var emoji = Dictionary<Int, String>()
     
