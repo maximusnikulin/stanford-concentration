@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B654322324875AB70069D003 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654322224875AB70069D003 /* Theme.swift */; };
+		B654322524875C610069D003 /* ThemeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B654322424875C610069D003 /* ThemeFactory.swift */; };
 		B6B64680247A664200204552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6467F247A664200204552 /* AppDelegate.swift */; };
 		B6B64682247A664200204552 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B64681247A664200204552 /* SceneDelegate.swift */; };
 		B6B64684247A664200204552 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B64683247A664200204552 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B654322224875AB70069D003 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B654322424875C610069D003 /* ThemeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeFactory.swift; sourceTree = "<group>"; };
 		B6B6467C247A664200204552 /* Concentrarion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Concentrarion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6B6467F247A664200204552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6B64681247A664200204552 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 				B6EA85262482B6DA00ADB492 /* Concentration.swift */,
 				B6EA85282482B83500ADB492 /* Card.swift */,
 				B6B6468D247A664A00204552 /* Info.plist */,
+				B654322224875AB70069D003 /* Theme.swift */,
+				B654322424875C610069D003 /* ThemeFactory.swift */,
 			);
 			path = Concentrarion;
 			sourceTree = "<group>";
@@ -155,7 +161,9 @@
 				B6B64684247A664200204552 /* ViewController.swift in Sources */,
 				B6EA85272482B6DB00ADB492 /* Concentration.swift in Sources */,
 				B6EA85292482B83500ADB492 /* Card.swift in Sources */,
+				B654322324875AB70069D003 /* Theme.swift in Sources */,
 				B6B64680247A664200204552 /* AppDelegate.swift in Sources */,
+				B654322524875C610069D003 /* ThemeFactory.swift in Sources */,
 				B6B64682247A664200204552 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
