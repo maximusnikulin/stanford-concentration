@@ -29,7 +29,7 @@ class Concentration
                 if (lastFlipDate != nil) {
                     timeSinceLastFlip = Date().timeIntervalSince(lastFlipDate!)
                 }
-                
+                // MARK: 2
                 /**
                  Matched
                  */
@@ -38,7 +38,6 @@ class Concentration
                     cards[index].isMatched = true
                     score += 2
                     
-                    print(timeSinceLastFlip)
                     if (timeSinceLastFlip > 2) {
                         score -= min(0.1 * timeSinceLastFlip, 1)
                     } else {
@@ -49,10 +48,9 @@ class Concentration
                      Matched
                      */
                     score -= cards[matchIndex].wasFlpped ? 1 : 0
-                    score -= cards[index].wasFlpped ? 1 : 0                    
-                                        
+                    score -= cards[index].wasFlpped ? 1 : 0
                     cards[index].wasFlpped = true
-                    cards[matchIndex].wasFlpped = true
+                   cards[matchIndex].wasFlpped = true
                 }
                 
                 score = Double(round(score * 100) / 100)
@@ -72,7 +70,7 @@ class Concentration
         }
     }
     
-    
+    // MARK: 2
     init(numberOfPairsOfCards: Int) {
         for _ in 1...numberOfPairsOfCards {
             let card = Card()

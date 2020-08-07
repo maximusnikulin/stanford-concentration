@@ -10,8 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    lazy var game = newGame()
-    var theme: Theme = ThemeFactory.getRandomly() {
+    var game: Concentration! {
+        didSet {
+            updateViewFromModel()
+        }
+    }
+
+    var theme: Theme! {
         didSet {
             emojiChoose = theme.emojies
         }
@@ -19,7 +24,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()        
-        updateViewFromModel()
+        game = newGame()        
     }
     
     var emojiChoose: [String] = []
